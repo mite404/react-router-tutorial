@@ -1,9 +1,9 @@
-import { redirect, type ActionFunctionArgs } from "react-router";
-import { deleteContact } from "app/data";
-import type { Route } from "../+types/root";
+import { redirect } from "react-router";
+import { deleteContact } from "../data";
+import type { Route } from "./+types/destroy-contact";
 
 // an action to delete
-export const action = async ({ params }: ActionFunctionArgs) => {
+export async function action({ params }: Route.ActionArgs) {
   // validate
   await deleteContact(params.contactId);
   return redirect("/");

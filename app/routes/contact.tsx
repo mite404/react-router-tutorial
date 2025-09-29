@@ -11,6 +11,10 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function Contact({ loaderData }: Route.ComponentProps) {
+  if (!loaderData) {
+    return <div>Loading...</div>
+  }
+
   const { contact } = loaderData;
 
   return (
