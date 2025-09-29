@@ -72,11 +72,7 @@ export default function Contact({ loaderData }: Route.ComponentProps) {
   );
 }
 
-function Favorite({
-  contact,
-}: {
-  contact: Pick<ContactRecord, "favorite">;
-}) {
+function Favorite({ contact }: { contact: Pick<ContactRecord, "favorite"> }) {
   const favorite = contact.favorite;
 
   return (
