@@ -11,6 +11,10 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export default function Contact({ loaderData }: Route.ComponentProps) {
+  if (!loaderData) {
+    return <div>Loading...</div>
+  }
+
   const { contact } = loaderData;
 
   return (
@@ -72,11 +76,7 @@ export default function Contact({ loaderData }: Route.ComponentProps) {
   );
 }
 
-function Favorite({
-  contact,
-}: {
-  contact: Pick<ContactRecord, "favorite">;
-}) {
+function Favorite({ contact }: { contact: Pick<ContactRecord, "favorite"> }) {
   const favorite = contact.favorite;
 
   return (
